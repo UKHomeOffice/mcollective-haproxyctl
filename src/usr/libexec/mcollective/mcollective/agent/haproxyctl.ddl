@@ -9,7 +9,7 @@ metadata    :name        => "haproxyctl",
 requires :mcollective => "2.2.1"
 
   ["enable", "disable"].each do |act|
-    action |act|, :description => "#{act.capitalize} haproxy ctl command" do
+    action act, :description => "#{act.capitalize} haproxy ctl command" do
     input :server,
           :prompt      => "Server Name",
           :description => "re-enable a server that was previously in maintenance mode",
@@ -23,7 +23,7 @@ requires :mcollective => "2.2.1"
           :description => "agent frontend health and server",
           :type        => :list,
           :optional    => false,
-          :list        => ['agent, 'frontend', 'health', 'server'']
+          :list        => ['agent', 'frontend', 'health', 'server']
 
     output :output,
            :description => "Output from haproxyctl",
@@ -36,7 +36,7 @@ requires :mcollective => "2.2.1"
 end
 
  ["enable_all", "disable_all"].each do |act|
-    action |act|, :description => "#{act.capitalize} haproxy ctl command" do
+    action act, :description => "#{act.capitalize} haproxy ctl command" do
     input :server,
           :prompt      => "Server Name",
           :description => "re-enable a server that was previously in maintenance mode",
