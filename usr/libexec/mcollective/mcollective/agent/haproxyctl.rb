@@ -23,7 +23,8 @@ module MCollective
       action 'enable' do
 	haproxyctl = "/usr/bin/haproxyctl"
 	server = get_server
-        haproxyctl_command = "#{haproxyctl} enable #{server}"
+        mode   = get_mode
+        haproxyctl_command = "#{haproxyctl} enable #{mode} #{server}"
 
         begin
           Log.info("#{haproxyctl_command}")
@@ -36,6 +37,7 @@ module MCollective
       action 'enable_all' do
 	haproxyctl = "/usr/bin/haproxyctl"
 	server = get_server
+        mode   = get_mode
         haproxyctl_command = "#{haproxyctl} enable all #{server}"
 
         begin
@@ -62,7 +64,8 @@ module MCollective
       action 'disable' do
 	haproxyctl = "/usr/bin/haproxyctl"
 	server = get_server
-        haproxyctl_command = "#{haproxyctl} disable #{server}"
+        mode   = get_mode
+        haproxyctl_command = "#{haproxyctl} disable #{mode} #{server}"
 
         begin
           Log.info("#{haproxyctl_command}")
@@ -75,6 +78,7 @@ module MCollective
       action 'disable_all' do
 	haproxyctl = "/usr/bin/haproxyctl"
 	server = get_server
+        mode   = get_mode
         haproxyctl_command = "#{haproxyctl} disable all #{server}"
 
         begin
